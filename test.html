@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Carousel with Advanced Animations</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Include Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Include Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    .carousel-inner img {
+      max-height: 400px; /* Adjust the maximum height as per your preference */
+      object-fit: cover;
+    }
+
+    .owl-nav .owl-prev,
+    .owl-nav .owl-next {
+      background-color: #000; /* Set the background color for the icons */
+      color: #fff; /* Set the color for the icons */
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .owl-nav .owl-prev {
+      left: 10px;
+    }
+
+    .owl-nav .owl-next {
+      right: 10px;
+    }
+
+    .owl-item .item {
+      position: relative;
+    }
+
+    .owl-item .item::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and transparency as per your preference */
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .owl-item.active .item::after {
+      opacity: 1;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      color: #fff;
+    }
+
+    .carousel-caption h5 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .carousel-caption p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="owl-carousel owl-theme">
+    <div class="item">
+      <img src="/image/g2.jpg" alt="">
+      <div class="carousel-caption">
+        <h5 class="animate__animated animate__fadeInDown">Graphics Project</h5>
+        <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/image/bbb.jpg" alt="">
+      <div class="carousel-caption">
+        <h5 class="animate__animated animate__fadeInDown">OpenUp Web App</h5>
+        <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/image/bbb.jpg" alt="">
+      <div class="carousel-caption">
+        <h5 class="animate__animated animate__fadeInDown">Web Project Design</h5>
+        <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <!-- Add more items here -->
+  </div>
+
+  <!-- Include jQuery, Bootstrap JS, and Owl Carousel JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.owl-carousel').owlCarousel({
+        items: 1,
+        loop:true,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000, // Delay between slides (in milliseconds)
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'], // Use custom icons for navigation arrows
+        animateOut: 'fadeOut', // Use fadeOut animation when transitioning to the next slide
+        animateIn: 'fadeIn', // Use fadeIn animation when transitioning to the current slide
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          992: {
+            items: 3
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
